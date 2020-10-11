@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorLoginPrimaryDark"
+        tools:context="com.example.easytripplanner.RegisterActivity">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:src="@drawable/login_hero_image" />
+
+            <TextView
+                style="@style/viewParent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="Register"
+                android:textColor="@color/blackTextColor"
+                android:textSize="@dimen/headerTextSize"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_name"
+                style="@style/parent.TextLayout"
+                android:layout_marginTop="@dimen/signup_text_margin_top">
+
+                <EditText
+                    android:id="@+id/edit_text_name"
+                    style="@style/modifiedEditText"
+                    android:hint="Name"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_email_register"
+                style="@style/parent.TextLayout"
+                android:layout_marginTop="@dimen/signup_text_margin_top">
+
+                <EditText
+                    android:id="@+id/edit_text_email"
+                    style="@style/modifiedEditText"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_username"
+                style="@style/parent.TextLayout"
+                android:layout_marginTop="@dimen/signup_text_margin_top">
+
+                <EditText
+                    android:id="@+id/edit_text_username"
+                    style="@style/modifiedEditText"
+                    android:hint="Username"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_password"
+                style="@style/parent.TextLayout"
+                android:layout_marginTop="@dimen/signup_text_margin_top">
+
+                <EditText
+                    android:id="@+id/edit_text_password"
+                    style="@style/modifiedEditText"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/next_button_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:src="@drawable/ic_login_button" />
+
+            <TextView
+                android:id="@+id/have_account_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/do_you_have_account"
+                android:textAlignment="center"
+                android:textColor="@color/blackTextColor"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:cropToPadding="true"
+                    android:src="@drawable/facebook_button" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:id="@+id/google_sign_up_button"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:cropToPadding="true"
+                    android:src="@drawable/google_button" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

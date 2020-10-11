@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Easy Trip Planner</string>
+
+    <string name="app_name"></string>
+    <string name="dont_have_account">Don\'t Have an Account?\nRegister Now.</string>
+    <string name="do_you_have_account">Already Have an Account?\nLogin Now.</string>
+
 </resources>

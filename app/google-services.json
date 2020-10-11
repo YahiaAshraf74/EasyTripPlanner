@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "749247991388",
+    "firebase_url": "https://easy-trip-planner-714d8.firebaseio.com",
+    "project_id": "easy-trip-planner-714d8",
+    "storage_bucket": "easy-trip-planner-714d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749247991388:android:0e60f72dab9759b265e099",
+        "android_client_info": {
+          "package_name": "com.example.easytripplanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749247991388-3jictmreqhvud6gnchcs6kgh8g4psj36.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkQ8BAzKETjcuo8Ydr8nww21rmJoXBAx4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749247991388-3jictmreqhvud6gnchcs6kgh8g4psj36.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
