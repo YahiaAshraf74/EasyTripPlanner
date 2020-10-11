@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Easy Trip Planner</string>
+
+    <string-array name="itemRepeater">
+        <item>No repeat</item>
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+    </string-array>
+
+    <string-array name="itemTripType">
+        <item>one Way</item>
+        <item>Round</item>
+    </string-array>
+
 </resources>
