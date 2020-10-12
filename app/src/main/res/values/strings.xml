@@ -2,6 +2,12 @@
     <string name="app_name">Easy Trip Planner</string>
     <string name="dont_have_account">Don\'t Have an Account?\nRegister Now.</string>
     <string name="do_you_have_account">Already Have an Account?\nLogin Now.</string>
+    <string name="history">History</string>
+    <string name="upcomingtrips">Upcoming</string>
+    <string name="sychnoraztion">sync</string>
+    <string name="logoutbutton">Logout</string>
+    <string name="navigation_drawer_open">open navigation drawer</string>
+    <string name="navigation_drawer_close">close navigation drawer</string>
     <string-array name="itemRepeater">
         <item>No repeat</item>
         <item>Daily</item>
@@ -13,5 +19,8 @@
         <item>one Way</item>
         <item>Round</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="noupcomingtrips">there no upcoming trips</string>
 
 </resources>
