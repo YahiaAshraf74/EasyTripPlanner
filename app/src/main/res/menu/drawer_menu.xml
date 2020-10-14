@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_upcomong_trips"
+            android:icon="@drawable/ic_upcoming_icon"
+            android:title="@string/upcomingtrips"></item>
+        <item
+            android:id="@+id/nav_history_oftrips"
+            android:icon="@drawable/ic_history_icon"
+            android:title="@string/history"></item>
+    </group>
+
+    <item android:title="other">
+        <menu>
+            <item
+                android:id="@+id/nav_sync_button"
+                android:icon="@drawable/ic_sync_icon"
+                android:title="@string/sychnoraztion"></item>
+            <item
+                android:id="@+id/nav_log_out_button"
+                android:icon="@drawable/ic_logout_icon"
+                android:title="@string/logoutbutton"></item>
+        </menu>
+    </item>
+</menu>
