@@ -60,8 +60,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HistoryFragment()).commit();
                 break;
             case R.id.nav_sync_button:
-                //here code firebase to synch data
-                Toast.makeText(HomeActivity.this, "synch", Toast.LENGTH_SHORT).show();
+                //here code firebase to sync data
+                Toast.makeText(HomeActivity.this, "sync", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_log_out_button:
                 //here code firebase to lof out
