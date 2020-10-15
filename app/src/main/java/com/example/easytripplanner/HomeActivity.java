@@ -18,11 +18,13 @@ import android.widget.Toast;
 
 import com.example.easytripplanner.databinding.ActivityHomeBinding;
 import com.example.easytripplanner.databinding.ActivityRegisterBinding;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    FloatingActionButton floatingButtonAddTrip;
     Toolbar toolbar;
     private DrawerLayout drawer;
 
@@ -31,6 +33,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        floatingButtonAddTrip = findViewById(R.id.floatingbuttonaddtrip);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -47,6 +50,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new UpComingFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_upcomong_trips);
         }
+
+        floatingButtonAddTrip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, AddTrip.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

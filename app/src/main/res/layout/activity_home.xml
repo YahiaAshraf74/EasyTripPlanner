@@ -10,11 +10,22 @@
     tools:context=".HomeActivity">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingbuttonaddtrip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FF9800"
+            android:src="@drawable/ic_add_trip"
+            app:fabSize="normal"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="20dp"
+        ></com.google.android.material.floatingactionbutton.FloatingActionButton>
+
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -29,8 +40,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/fragment_container"
+            android:layout_below="@+id/toolbar"
             ></FrameLayout>
-    </LinearLayout>
+    </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
@@ -41,12 +53,4 @@
         app:menu="@menu/drawer_menu"
         ></com.google.android.material.navigation.NavigationView>
 
-    <Button
-        android:id="@+id/log_out_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Logout"
-        android:textSize="16sp" />
-
-    </androidx.drawerlayout.widget.DrawerLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
