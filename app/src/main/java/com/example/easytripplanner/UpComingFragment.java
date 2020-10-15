@@ -42,10 +42,9 @@ public class UpComingFragment extends Fragment {
         tripArrayList.add(new Trip("visit", "Alex", "Cairo", 12/2/2020, 330, "upcoming"));
         tripArrayList.add(new Trip("visit", "Alex", "Cairo", 12/2/2020, 330, "upcoming"));
 */
-        tripAdapter = new TripAdapter(this,tripArrayList);
+        tripAdapter = new TripAdapter(this.getContext(), tripArrayList);
         recyclerViewUpcoming.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewUpcoming.setAdapter(tripAdapter);
-
 
 
         return view;

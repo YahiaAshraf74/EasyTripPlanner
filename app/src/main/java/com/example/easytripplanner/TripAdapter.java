@@ -16,13 +16,13 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder>{
+public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder> {
 
     Context context;
     ArrayList<Trip> trips;
 
 
-    public TripAdapter(UpComingFragment context, ArrayList<Trip> trips) {
+    public TripAdapter(Context context, ArrayList<Trip> trips) {
         this.context = context;
         this.trips = trips;
     }
@@ -30,7 +30,7 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder>{
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.custom_row,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.custom_row, parent, false);
         MyViewHolder myViewHolder = new MyViewHolder(view);
         return myViewHolder;
     }
@@ -83,7 +83,7 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder>{
                 context.startActivity(intent);
           */
 
-               // in the edit activity you will write this code
+                // in the edit activity you will write this code
           /*
                 String name = getIntent().getStringExtra("Name");
                 String status = getIntent().getStringExtra("Status");
@@ -106,24 +106,24 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder>{
         return trips.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView date , time , name, status, startpoint, endpoint;
+        TextView date, time, name, status, startpoint, endpoint;
         ImageView notes;
         Button start;
 
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-                date = itemView.findViewById(R.id.text1date);
-                time = itemView.findViewById(R.id.text2time);
-                name = itemView.findViewById(R.id.text3name);
-                status = itemView.findViewById(R.id.text4status);
-                startpoint = itemView.findViewById(R.id.text5startpoint);
-                endpoint = itemView.findViewById(R.id.text6endpoint);
-                notes = itemView.findViewById(R.id.show_notes);
-                start = itemView.findViewById(R.id.start_trip_customrow);
-            }
+            date = itemView.findViewById(R.id.text1date);
+            time = itemView.findViewById(R.id.text2time);
+            name = itemView.findViewById(R.id.text3name);
+            status = itemView.findViewById(R.id.text4status);
+            startpoint = itemView.findViewById(R.id.text5startpoint);
+            endpoint = itemView.findViewById(R.id.text6endpoint);
+            notes = itemView.findViewById(R.id.show_notes);
+            start = itemView.findViewById(R.id.start_trip_customrow);
         }
     }
+}
 
