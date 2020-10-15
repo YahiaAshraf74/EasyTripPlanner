@@ -33,8 +33,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
-public class AddTrip extends AppCompatActivity
-{
+public class AddTrip extends AppCompatActivity {
     public static final String API_KEY = "AIzaSyBq3hu0_i2dFOSs6yH8EluKgOjClYBJRcg";
     EditText tripName;
     EditText startPoint;
@@ -117,7 +116,7 @@ public class AddTrip extends AppCompatActivity
                         , Place.Field.LAT_LNG, Place.Field.NAME);
 
                 // the creation of the intent.
-                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY , fieldList).build(AddTrip.this);
+                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY, fieldList).build(AddTrip.this);
 
                 // start Activity result.
                 startActivityForResult(intent, 100);
@@ -134,7 +133,7 @@ public class AddTrip extends AppCompatActivity
                         , Place.Field.LAT_LNG, Place.Field.NAME);
 
                 // the creation of the intent.
-                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY , fieldList).build(AddTrip.this);
+                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY, fieldList).build(AddTrip.this);
 
                 // start Activity result
                 startActivityForResult(intent, 100);
@@ -156,7 +155,7 @@ public class AddTrip extends AppCompatActivity
                 datePickerDialog = new DatePickerDialog(AddTrip.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        startDate.setText(dayOfMonth + "-" + (month+1) + "-" + year);
+                        startDate.setText(dayOfMonth + "-" + (month + 1) + "-" + year);
                     }
                 }, year, month, day);
 
@@ -169,7 +168,7 @@ public class AddTrip extends AppCompatActivity
             @Override
             public void onClick(View v) {
 
-                    timePickerDialog = new TimePickerDialog(AddTrip.this, new TimePickerDialog.OnTimeSetListener() {
+                timePickerDialog = new TimePickerDialog(AddTrip.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         //initialize hour and minute.
@@ -183,7 +182,7 @@ public class AddTrip extends AppCompatActivity
                         android.text.format.DateFormat df = new android.text.format.DateFormat();
                         startTime.setText(df.format("hh:mm aa", calendar));
                     }
-                },12, 0, true);
+                }, 12, 0, true);
 
                 timePickerDialog.show();
             }
@@ -209,14 +208,12 @@ public class AddTrip extends AppCompatActivity
     }
 
     // return selected item in repeater spinner.
-    public String getRepeater()
-    {
+    public String getRepeater() {
         return repeater.getSelectedItem().toString();
     }
 
     // return selected item in tripType spinner.
-    public String getTripType()
-    {
+    public String getTripType() {
         return tripType.getSelectedItem().toString();
     }
 
