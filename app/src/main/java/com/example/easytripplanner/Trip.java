@@ -1,9 +1,15 @@
 package com.example.easytripplanner;
 
+import android.util.Log;
+
 import androidx.annotation.IdRes;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Entity(tableName = "trips_table")
 public class Trip {
@@ -131,6 +137,21 @@ public class Trip {
 
     public void setTripType(String tripType) {
         this.tripType = tripType;
+    }
+
+    public String miliSecToDate()
+    {
+        DateFormat simple = new SimpleDateFormat("dd-MM-yyyy");
+        Date result = new Date(getStartDateinMillisec());
+        return simple.format(result);
+    }
+
+    public String miliSecToTime()
+    {
+        // Creating date format
+        DateFormat simple = new SimpleDateFormat("HH:mm");
+        Date result = new Date(getStartTimeinMillisec());
+        return simple.format(result);
     }
 }
 

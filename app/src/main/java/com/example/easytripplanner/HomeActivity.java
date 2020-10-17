@@ -64,6 +64,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, AddTrip.class);
+                intent.putExtra(TripAdapter.activityName, "Original");
                 startActivity(intent);
             }
         });
