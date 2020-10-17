@@ -52,6 +52,8 @@ public class UpComingFragment extends Fragment {
 
                     @Override
                     public void onSuccess(List<Trip> trips) {
+                        // here is the list of trips you added 
+
                         LinearLayoutManager llm = new LinearLayoutManager(getContext());
                         llm.setOrientation(LinearLayoutManager.VERTICAL);
                         Log.e("onSuccess", "" + trips.size());
@@ -65,6 +67,8 @@ public class UpComingFragment extends Fragment {
 
                     }
                 });
+        // !!!! this code used to get all trips
+
         return view;
     }
 }
