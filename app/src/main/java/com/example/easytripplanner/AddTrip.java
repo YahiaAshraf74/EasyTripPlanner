@@ -6,7 +6,6 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -23,6 +22,7 @@ import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
@@ -39,13 +39,14 @@ public class AddTrip extends AppCompatActivity {
     private TimePickerDialog timePickerDialog;
     private int hr, min;
     private Spinner repeater, tripType;
-    private Button addNoteButton, CancelButton, AddTripButton;
+    private Button addNoteButton, backButton, AddTripButton, EditButton, cancelButton, deleteButton;
     private String nameTrip, startPointTrip, endPointTrip, repeaterTrip, tripTypeTrip, notesTrip, statusTrip;
     private String userId;
     long startDateTripinMillisec, startTimeTripinMillisec;
     private FirebaseAuth mAuth;
-
     private TripsDatabase tripsDatabase;
+    public static String activityType;
+    private static String currentNotes = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +56,6 @@ public class AddTrip extends AppCompatActivity {
 
         // get our database instance from room
         tripsDatabase = TripsDatabase.getInstance(this);
-
-
 
         tripName = findViewById(R.id.tripname_id);
         startPoint = findViewById(R.id.startpoint_id);
@@ -68,9 +67,11 @@ public class AddTrip extends AppCompatActivity {
         addNoteEditText = findViewById(R.id.txtaddnote_id);
         addNoteButton = findViewById(R.id.btnaddnote_id);
         notesTextView = findViewById(R.id.notes_id);
-        CancelButton = findViewById(R.id.btn_CancelActivity);
+        backButton = findViewById(R.id.btnback);
         AddTripButton = findViewById(R.id.btn_addTrip);
-
+        EditButton = findViewById(R.id.btnEdit);
+        cancelButton = findViewById(R.id.btncanceltrip);
+        deleteButton = findViewById(R.id.btndeletetrip);
 
         addNoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +90,28 @@ public class AddTrip extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(AddTrip.this, R.array.itemTripType, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         tripType.setAdapter(adapter1);
+
+        // to switch add activity to edit&cancel Activity.
+        Intent intent = getIntent();
+        activityType = intent.getStringExtra(TripAdapter.activityName);
+
+        if(activityType.equals("Switch"))
+        {
+            AddTripButton.setVisibility(View.INVISIBLE);
+            EditButton.setVisibility(View.VISIBLE);
+            cancelButton.setVisibility(View.VISIBLE);
+            deleteButton.setVisibility(View.VISIBLE);
+
+            tripName.setText(getIntent().getStringExtra("Name"));
+            startPoint.setText(getIntent().getStringExtra("StartPoint"));
+            endPoint.setText(getIntent().getStringExtra("EndPoint"));
+            startDate.setText(getIntent().getStringExtra("Date"));
+            startTime.setText(getIntent().getStringExtra("Time"));
+            repeater.setSelection(adapter.getPosition(getIntent().getStringExtra("repeater")));
+            tripType.setSelection(adapter1.getPosition(getIntent().getStringExtra("tripType")));
+            notesTextView.setText(getIntent().getStringExtra("Notes"));
+        }
+
         // to don't let the editTexts force me to double click on them to popup .
         startPoint.setFocusable(false);
         endPoint.setFocusable(false);
@@ -179,7 +202,7 @@ public class AddTrip extends AppCompatActivity {
                 timePickerDialog.show();
             }
         });
-        CancelButton.setOnClickListener(new View.OnClickListener() {
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -189,7 +212,7 @@ public class AddTrip extends AppCompatActivity {
         AddTripButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Validation
+
                 nameTrip = tripName.getText().toString();
                 startPointTrip = startPoint.getText().toString();
                 endPointTrip = endPoint.getText().toString();
@@ -200,7 +223,8 @@ public class AddTrip extends AppCompatActivity {
                 statusTrip = (calendar.getTimeInMillis() < startTimeTripinMillisec) ? "Upcoming" : "Done";
                 userId = mAuth.getCurrentUser().getUid();
                 Log.e("addtrip", userId);
-                Trip newTrip = new Trip(userId, startPointTrip, endPointTrip, startDateTripinMillisec, startTimeTripinMillisec, statusTrip);
+
+                Trip newTrip = new Trip(userId, nameTrip, startPointTrip, endPointTrip, startDateTripinMillisec, startTimeTripinMillisec, notesTrip, repeaterTrip, tripTypeTrip, statusTrip);
                 tripsDatabase.tripsDao().insertTrip(newTrip)
                         .subscribeOn(Schedulers.computation())
                         .subscribe(new CompletableObserver() {
@@ -220,6 +244,27 @@ public class AddTrip extends AppCompatActivity {
                             }
                         });
                 startActivity(new Intent(AddTrip.this, HomeActivity.class));
+            }
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // update trip's status -----> cancel
+            }
+        });
+
+        EditButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // update all trip variables.
+            }
+        });
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // delete this trip
             }
         });
 

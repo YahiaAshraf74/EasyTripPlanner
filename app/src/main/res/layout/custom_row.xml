@@ -6,7 +6,7 @@
     android:layout_margin="25sp">
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="371dp"
         android:layout_height="match_parent"
         android:padding="10dp">
 
@@ -14,20 +14,18 @@
             android:id="@+id/text1date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="date"
             android:gravity="left"
-            android:textSize="20dp"
-            ></TextView>
+            android:text="date"
+            android:textSize="20dp"></TextView>
 
         <TextView
             android:id="@+id/text2time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="time"
-            android:textSize="20dp"
+            android:layout_marginLeft="39dp"
             android:layout_toRightOf="@+id/text1date"
-            android:layout_marginLeft="120dp"
-            ></TextView>
+            android:text="time"
+            android:textSize="20dp"></TextView>
 
         <TextView
             android:id="@+id/text3name"
@@ -37,92 +35,87 @@
             android:layout_marginTop="10dp"
             android:text="name"
             android:textSize="25dp"
-            android:textStyle="bold"
-            ></TextView>
+            android:textStyle="bold"></TextView>
 
         <TextView
             android:id="@+id/text4status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text2time"
-            android:layout_toRightOf="@+id/text3name"
-            android:layout_marginLeft="150dp"
+            android:layout_marginLeft="49dp"
             android:layout_marginTop="12dp"
+            android:layout_toRightOf="@+id/text3name"
             android:text="status"
             android:textSize="20dp"></TextView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="_____________________"
-            android:textSize="20dp"
             android:layout_below="@+id/text3name"
-            android:layout_marginTop="10dp"
-            ></TextView>
+            android:layout_marginTop="-3dp"
+            android:text="_____________________"
+            android:textSize="20dp"></TextView>
 
         <ImageView
             android:id="@+id/destntiontrip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text3name"
-            android:src="@drawable/ic_trip_destntion"
-            android:layout_marginTop="40dp"
-            ></ImageView>
+            android:layout_marginTop="36dp"
+            android:src="@drawable/ic_trip_destntion"></ImageView>
 
         <TextView
             android:id="@+id/text5startpoint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/destntiontrip"
             android:layout_below="@+id/text3name"
-            android:layout_marginTop="40dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="31dp"
+            android:layout_toRightOf="@+id/destntiontrip"
             android:text="start point"
-            android:textSize="20dp"
-            ></TextView>
+            android:textSize="20dp"></TextView>
 
         <TextView
             android:id="@+id/text6endpoint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/destntiontrip"
             android:layout_below="@+id/text5startpoint"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/destntiontrip"
             android:text="end point"
-            android:textSize="20dp"
-            ></TextView>
+            android:textSize="20dp"></TextView>
 
         <TextView
             android:id="@+id/linecustomrow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="_____________________"
-            android:textSize="20dp"
             android:layout_below="@+id/text6endpoint"
-            android:layout_marginTop="5dp"
-            ></TextView>
+            android:layout_marginTop="-10dp"
+            android:text="_____________________"
+            android:textSize="20dp"></TextView>
 
         <Button
             android:id="@+id/start_trip_customrow"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="@string/startbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
             android:layout_below="@+id/linecustomrow"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:background="#03A9F4"
-            ></Button>
+            android:text="@string/startbutton"></Button>
 
         <ImageView
             android:id="@+id/show_notes"
-            android:layout_width="70sp"
-            android:layout_height="60sp"
-            android:layout_toRightOf="@+id/start_trip_customrow"
+            android:layout_width="49dp"
+            android:layout_height="37dp"
             android:layout_below="@+id/linecustomrow"
-            android:src="@drawable/ic_show_note_24"
-            android:layout_marginTop="8sp"
-            android:layout_marginLeft="40sp"
-            ></ImageView>
+            android:layout_marginLeft="106dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/start_trip_customrow"
+            android:src="@drawable/ic_show_note_24"></ImageView>
 
     </RelativeLayout>
 

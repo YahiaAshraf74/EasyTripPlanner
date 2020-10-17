@@ -1,6 +1,7 @@
 package com.example.easytripplanner;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +15,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder> {
 
     Context context;
     List<Trip> trips;
+    public static final String activityName = "Activity Name";
 
 
     public TripAdapter(Context context, List<Trip> trips) {
@@ -36,16 +41,18 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder> 
         return myViewHolder;
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         final Trip trip = trips.get(position);
-        holder.date.setText(Long.toString(trip.getStartDateinMillisec()));
-        holder.time.setText(Long.toString(trip.getStartTimeinMillisec()));
+        holder.date.setText(trip.miliSecToDate());
+        holder.time.setText(trip.miliSecToTime());
         holder.name.setText(trip.getTripName());
         holder.status.setText(trip.getStatus());
         holder.startpoint.setText(trip.getStartPoint());
         holder.endpoint.setText(trip.getEndPoint());
+
         holder.start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,44 +66,24 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder> 
             }
         });
 
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String name = trip.getTripName();
-                String status = trip.getStatus();
-                long date = trip.getStartDateinMillisec();
-                long time = trip.getStartTimeinMillisec();
-                String startPoint = trip.getStartPoint();
-                String endPoint = trip.getEndPoint();
-                String note = trip.getNotes();
-
-                //delete MainActivity2 and put instead of it the name of the edit activity
-
-          /*    Intent intent =new Intent(context,MainActivity2.class);
-                intent.putExtra("Name", name);
-                intent.putExtra("Status", status);
-                intent.putExtra("Date", date);
-                intent.putExtra("Time", time);
-                intent.putExtra("StartPoint", startPoint);
-                intent.putExtra("EndPoint", endPoint);
-                intent.putExtra("Notes", note);
+                Intent intent = new Intent(context, AddTrip.class);
+                intent.putExtra(TripAdapter.activityName, "Switch");
+                intent.putExtra("Name",  trip.getTripName());
+                intent.putExtra("StartPoint", trip.getStartPoint());
+                intent.putExtra("EndPoint", trip.getEndPoint());
+                intent.putExtra("Date", trip.miliSecToDate());
+                intent.putExtra("Time", trip.miliSecToTime());
+                intent.putExtra("tripType", trip.getTripType());
+                intent.putExtra("repeater", trip.getRepeater());
+                intent.putExtra("Notes", trip.getNotes());
+                intent.putExtra("Status", trip.getStatus());
                 context.startActivity(intent);
-          */
 
-                // in the edit activity you will write this code
-          /*
-                String name = getIntent().getStringExtra("Name");
-                String status = getIntent().getStringExtra("Status");
-                String date = getIntent().getStringExtra("Date");
-                String time = getIntent().getStringExtra("Time");
-                String startPoint = getIntent().getStringExtra("StartPoint");
-                String endPoint = getIntent().getStringExtra("EndPoint");
-                 ArrayList<String> note = getIntent().getStringArrayListExtra("Notes");
-
-                // and in every edit text will write
-                //edittext.setText("name one of the above variable");
-         */
             }
         });
 
