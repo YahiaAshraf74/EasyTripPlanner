@@ -1,33 +1,65 @@
 package com.example.easytripplanner;
 
-import java.sql.Time;
-import java.util.ArrayList;
-import java.util.Date;
+import androidx.annotation.IdRes;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
+@Entity(tableName = "trips_table")
 public class Trip {
 
-    //primary keys (userID, id).
-    private int userID;
-    private int tripID;
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
+    private String userId;
     private String tripName;
-    private String StartPoint;
+    private String startPoint;
     private String endPoint;
-    private Date startDate;
-    private Time startTime;
-    private ArrayList<String> notes;
+    private long startDateinMillisec;
+    private long startTimeinMillisec;
+    private String notes;
     private String repeater;
     private String tripType;
     private String status;
 
-    public Trip(String tripName, String startPoint, String endPoint, Date startDate, Time startTime, String status) {
+    public Trip(String userId, String tripName, String startPoint, String endPoint, long startDateinMillisec, long startTimeinMillisec, String notes, String repeater, String tripType, String status) {
+        this.userId = userId;
         this.tripName = tripName;
-        StartPoint = startPoint;
+        this.startPoint = startPoint;
         this.endPoint = endPoint;
-        this.startDate = startDate;
-        this.startTime = startTime;
+        this.startDateinMillisec = startDateinMillisec;
+        this.startTimeinMillisec = startTimeinMillisec;
+        this.notes = notes;
+        this.repeater = repeater;
+        this.tripType = tripType;
         this.status = status;
     }
 
+    @Ignore
+    public Trip(String tripName, String startPoint, String endPoint, long startDateinMillisec, long startTimeinMillisec, String status) {
+        this.tripName = tripName;
+        this.startPoint = startPoint;
+        this.endPoint = endPoint;
+        this.startDateinMillisec = startDateinMillisec;
+        this.startTimeinMillisec = startTimeinMillisec;
+        this.status = status;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getStatus() {
         return status;
@@ -35,22 +67,6 @@ public class Trip {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public int getUserID() {
-        return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
-
-    public int getTripID() {
-        return tripID;
-    }
-
-    public void setTripID(int tripID) {
-        this.tripID = tripID;
     }
 
     public String getTripName() {
@@ -62,11 +78,11 @@ public class Trip {
     }
 
     public String getStartPoint() {
-        return StartPoint;
+        return startPoint;
     }
 
     public void setStartPoint(String startPoint) {
-        StartPoint = startPoint;
+        this.startPoint = startPoint;
     }
 
     public String getEndPoint() {
@@ -77,27 +93,27 @@ public class Trip {
         this.endPoint = endPoint;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public long getStartDateinMillisec() {
+        return startDateinMillisec;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setStartDateinMillisec(long startDateinMillisec) {
+        this.startDateinMillisec = startDateinMillisec;
     }
 
-    public Time getStartTime() {
-        return startTime;
+    public long getStartTimeinMillisec() {
+        return startTimeinMillisec;
     }
 
-    public void setStartTime(Time startTime) {
-        this.startTime = startTime;
+    public void setStartTimeinMillisec(long startTimeinMillisec) {
+        this.startTimeinMillisec = startTimeinMillisec;
     }
 
-    public ArrayList<String> getNotes() {
+    public String getNotes() {
         return notes;
     }
 
-    public void setNotes(ArrayList<String> notes) {
+    public void setNotes(String notes) {
         this.notes = notes;
     }
 

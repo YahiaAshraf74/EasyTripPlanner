@@ -1,7 +1,7 @@
 package com.example.easytripplanner;
 
 import android.content.Context;
-import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,17 +12,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.sql.Time;
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 
 public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder> {
 
     Context context;
-    ArrayList<Trip> trips;
+    List<Trip> trips;
 
 
-    public TripAdapter(Context context, ArrayList<Trip> trips) {
+    public TripAdapter(Context context, List<Trip> trips) {
         this.context = context;
         this.trips = trips;
     }
@@ -39,8 +40,8 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         final Trip trip = trips.get(position);
-        holder.date.setText((CharSequence) trip.getStartDate());
-        holder.time.setText((CharSequence) trip.getStartTime());
+        holder.date.setText(Long.toString(trip.getStartDateinMillisec()));
+        holder.time.setText(Long.toString(trip.getStartTimeinMillisec()));
         holder.name.setText(trip.getTripName());
         holder.status.setText(trip.getStatus());
         holder.startpoint.setText(trip.getStartPoint());
@@ -64,11 +65,11 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder> 
 
                 String name = trip.getTripName();
                 String status = trip.getStatus();
-                Date date = trip.getStartDate();
-                Time time = trip.getStartTime();
+                long date = trip.getStartDateinMillisec();
+                long time = trip.getStartTimeinMillisec();
                 String startPoint = trip.getStartPoint();
                 String endPoint = trip.getEndPoint();
-                ArrayList<String> note = trip.getNotes();
+                String note = trip.getNotes();
 
                 //delete MainActivity2 and put instead of it the name of the edit activity
 
@@ -101,8 +102,17 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder> 
 
     }
 
+    public void setTrips(List<Trip> trips) {
+        this.trips = trips;
+    }
+
     @Override
     public int getItemCount() {
+        Log.e("adapter", trips.size() + "\n");
+        if (trips == null)
+            return 0;
+        if (trips.isEmpty())
+            return 0;
         return trips.size();
     }
 

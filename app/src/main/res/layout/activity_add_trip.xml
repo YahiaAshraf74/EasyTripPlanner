@@ -105,28 +105,40 @@
         app:layout_constraintStart_toEndOf="@+id/txtaddnote_id"
         app:layout_constraintTop_toBottomOf="@+id/repeater_id" />
 
-    <ListView
-        android:id="@+id/notes_id"
-        android:layout_width="279dp"
-        android:layout_height="70dp"
+
+    <ScrollView
+        android:id="@+id/notes_id_scroll_view"
+        android:layout_width="276dp"
+        android:layout_height="126dp"
         app:layout_constraintEnd_toEndOf="@+id/btnaddnote_id"
         app:layout_constraintStart_toStartOf="@+id/txtaddnote_id"
-        app:layout_constraintTop_toBottomOf="@+id/txtaddnote_id" />
+        app:layout_constraintTop_toBottomOf="@+id/txtaddnote_id">
+
+        <TextView
+            android:id="@+id/notes_id"
+            android:layout_width="279dp"
+            android:layout_height="70dp" />
+    </ScrollView>
+
 
     <Button
         android:id="@+id/btn_addTrip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
         android:text="Add Trip"
-        app:layout_constraintStart_toStartOf="@+id/notes_id"
-        app:layout_constraintTop_toBottomOf="@+id/notes_id" />
+        app:layout_constraintStart_toStartOf="@+id/notes_id_scroll_view"
+        app:layout_constraintTop_toBottomOf="@+id/notes_id_scroll_view" />
 
     <Button
         android:id="@+id/btn_CancelActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
         android:text="Cancel"
-        app:layout_constraintEnd_toEndOf="@+id/notes_id"
-        app:layout_constraintTop_toBottomOf="@+id/notes_id" />
+        app:layout_constraintEnd_toEndOf="@+id/notes_id_scroll_view"
+        app:layout_constraintTop_toBottomOf="@+id/notes_id_scroll_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
