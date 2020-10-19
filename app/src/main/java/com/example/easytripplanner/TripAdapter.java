@@ -118,7 +118,7 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder> 
             status = itemView.findViewById(R.id.text4status);
             startpoint = itemView.findViewById(R.id.text5startpoint);
             endpoint = itemView.findViewById(R.id.text6endpoint);
-            notes = itemView.findViewById(R.id.show_notes);
+            //notes = itemView.findViewById(R.id.show_notes);
             start = itemView.findViewById(R.id.start_trip_customrow);
         }
     }

@@ -107,16 +107,6 @@
             android:background="#03A9F4"
             android:text="@string/startbutton"></Button>
 
-        <ImageView
-            android:id="@+id/show_notes"
-            android:layout_width="49dp"
-            android:layout_height="37dp"
-            android:layout_below="@+id/linecustomrow"
-            android:layout_marginLeft="106dp"
-            android:layout_marginTop="8dp"
-            android:layout_toRightOf="@+id/start_trip_customrow"
-            android:src="@drawable/ic_show_note_24"></ImageView>
-
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
